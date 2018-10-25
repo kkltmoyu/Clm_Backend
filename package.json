@@ -1,0 +1,16 @@
+{
+  "name": "Clm_Backend",
+  "version": "0.0.1",
+  "description": "Clm backend",
+  "private": true,
+  "dependencies": {
+    
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "author": "kkltmoyu",
+}
