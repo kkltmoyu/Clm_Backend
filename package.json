@@ -4,7 +4,9 @@
   "description": "Clm backend",
   "private": true,
   "dependencies": {
-    
+    "koa": "^2.6.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
   },
   "scripts": {
     "start": "node app.js"
@@ -12,5 +14,5 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "author": "kkltmoyu",
+  "author": "kkltmoyu"
 }
