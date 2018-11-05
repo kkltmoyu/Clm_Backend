@@ -1,10 +1,14 @@
+// import login from './login'
+
 const Router = require('koa-router')
 
 // 装载所有子路由
 let indexRouter = new Router()
 indexRouter.post('/sendP', async(ctx) => {
     console.log('got post')
-    ctx.body = '恭喜 hi1 你成功登陆了'
+    ctx.body = {
+        word:'恭喜 hi1 你成功登陆了'
+    }
 });
 indexRouter.get('/getOne',async ctx => {
     console.log('getOne')

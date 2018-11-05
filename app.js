@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const app = new Koa()
-const indexRouter = require('./app/controllerRouter')
+const router = require('./app/router/index')
 const constants = require('./app/utils/constants')
 
 // indexRouter.get('/getOne', async(ctx,next) => {
@@ -31,7 +31,7 @@ const constants = require('./app/utils/constants')
 // });
 
 app.use(async(ctx, next) => {
-        console.log('in 1')
+        // console.log('in 1')
         if (ctx.request.header.origin !== ctx.origin && constants.whiteList.includes(ctx.request.header.origin)) {
             ctx.set('Access-Control-Allow-Origin', ctx.request.header.origin);
             ctx.set('Access-Control-Allow-Credentials', true);
@@ -40,9 +40,9 @@ app.use(async(ctx, next) => {
         await next();
     })
     .use(async(ctx, next) => {
-        console.log('OPTIONS 1')
+        // console.log('OPTIONS 1')
         if (ctx.method === 'OPTIONS') {
-            console.log('OPTIONS 2')
+            // console.log('OPTIONS 2')
             ctx.set('Access-Control-Allow-Methods', 'PUT,DELETE,POST,GET,OPTIONS');
             // ctx.set('Access-Control-Max-Age', 3600 * 24);
             ctx.set('Access-Control-Request-Headers','Origin,Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,Accept');
@@ -50,8 +50,8 @@ app.use(async(ctx, next) => {
         }
         await next();
     })
-    .use(indexRouter.routes())
-    .use(indexRouter.allowedMethods())
+    .use(router.routes())
+    .use(router.allowedMethods())
 
 app.listen(3333, () => {
     console.log('server is running')
