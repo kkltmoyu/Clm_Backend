@@ -1,8 +1,8 @@
-const Koa = require('koa')
+import Koa from 'koa'
+import router from './app/router/index'
+import constants from './app/utils/constants'
 const app = new Koa()
-const router = require('./app/router/index')
-const constants = require('./app/utils/constants')
-
+// const db = require('./app/db/db')
 // indexRouter.get('/getOne', async(ctx,next) => {
 // app.get('/getOne', async(ctx,next) => {
 //     console.log('got getOne')
