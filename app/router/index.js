@@ -7,7 +7,7 @@ import db from '../db/db'
 //¸ùÂ·ÓÉ
 let indexRouter = new Router()
 indexRouter.post('/sendP', userControlloer.postData);
-indexRouter.get('/getOne',userControlloer.getData);
+indexRouter.get('/getOne',userControlloer.getUser);
 
 indexRouter.use('/one', userRouter.routes(), userRouter.allowedMethods())
 indexRouter.use('/two', loginRouter.routes(), loginRouter.allowedMethods())

@@ -1,9 +1,15 @@
+
 import "babel-core/register"
 import "babel-polyfill"
 import Koa from 'koa'
 import router from './app/router/index'
 import constants from './app/utils/constants'
+import errorInfo from './app/utils/error'
+global.errorInfo = errorInfo
+
+
 const app = new Koa()
+// app.context.db = 'mydb'
 // const db = require('./app/db/db')
 // indexRouter.get('/getOne', async(ctx,next) => {
 // app.get('/getOne', async(ctx,next) => {
@@ -54,6 +60,10 @@ app.use(async(ctx, next) => {
     })
     .use(router.routes())
     .use(router.allowedMethods())
+
+// app.on('error', err => {
+//     console.error('server error1111111:', err)
+// });
 
 app.listen(3333, () => {
     console.log('server is running')

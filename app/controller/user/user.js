@@ -1,41 +1,69 @@
 import UserModal from '../../model/user'
 
-class User{
-	constructor(){
+class User {
+	constructor() {
 
 	}
-	async getData(req, res, next){
+	async getUser(ctx, next) {
+		// let target = {
+		// 	city:'√Ç¬±√Ç¬±√Ç¬æ√Ç¬©√É≈†√É¬ê',
+		// 	registe_time:new Date().toLocaleString(),
+		// 	user_name:'night',
+		// 	mobile:'17777777777'
+		// }
+		// let user1 = UserModal(target)
+		// user1.introduce()
+		// try{
+		// 	await user1.save() 
+		// 	console.log('save success');
+		// }catch(err){
+		// 	console.log('save failed');
+		// 	throw new Error(err);
+		// }
+
 		// let result = await UserModal.find({name:'night'});
-		let target = {
-			city:'±±æ© –',
-			registe_time:new Date().toLocaleString(),
-			user_name:'night',
-			mobile:'17777777777'
-		}
-		let user1 = UserModal(target)
-		user1.introduce()
 		try{
-			await user1.save() 
-			console.log('save success');
-		}catch(err){
-			console.log('save failed');
-			throw new Error(err);
+			// let result = await UserModal.find((err, user) => {
+			// 	if (err) return console.error('error is ',err);
+			// 	console.log(user);
+			// });
+			// console.log('ctx is ',ctx)
+			// let coo = ctx.cookies.get('cook')
+			let result = await UserModal.find() 
+			ctx.body = result
 		}
-		
-		// console.log('result is ',result)
-		// UserModal.introduce()
-		// ctx.response.body = data
-	    // req.body = {
-	    //     code: "1",
-	    //     msg: "succ"
-	    // }
-	    req.body = target
+		catch(error){
+			ctx.status = error.statusCode || error.status || global.errorInfo.errorCode['500'];
+			ctx.body = global.errorInfo.errorMsg.createUserFailed
+			// ctx.throw(500,'error',global.errorInfo.errorMsg.createUserFailed)
+		}
 	}
 
-	async postData(req, res, next){
-		await console.log('got postData') 
-	    req.body = {
-		    word:' ˝æ›±£¥Ê≥…π¶'
+	async createUser(ctx, next) {
+		let target = {
+			city: 'Âåó‰∫¨Â∏Ç',
+			registe_time: new Date().toLocaleString(),
+			user_name: 'night',
+			mobile: '17777777777'
+		}
+		let user = UserModal(target)
+		try {
+			await user.save()
+			console.log('‰øùÂ≠òÊàêÂäü');
+		} catch (err) {
+			console.log('‰øùÂ≠òÂ§±Ë¥•');
+			// throw new Error(err);
+		}
+	}
+
+	async updateUser(ctx, next) {
+
+	}
+
+	async postData(ctx, next) {
+		await console.log('got postData')
+		ctx.body = {
+			word: 'test'
 		}
 	}
 }
