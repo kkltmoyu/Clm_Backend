@@ -1,3 +1,5 @@
+import "babel-core/register"
+import "babel-polyfill"
 import Koa from 'koa'
 import router from './app/router/index'
 import constants from './app/utils/constants'
@@ -6,9 +8,9 @@ const app = new Koa()
 // indexRouter.get('/getOne', async(ctx,next) => {
 // app.get('/getOne', async(ctx,next) => {
 //     console.log('got getOne')
-//     // ctx.response.body = 'ÊÅ≠Âñú getOne'
+//     // ctx.response.body = 'ÊÅ?Âñ? getOne'
 //     // ctx.body = {
-//     //   obj :'ÊÅ≠Âñú getOne'
+//     //   obj :'ÊÅ?Âñ? getOne'
 //     // }
 //     if (ctx.request.accepts('xml')) {
 //     	console.log('xml')

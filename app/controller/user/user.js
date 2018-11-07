@@ -5,20 +5,37 @@ class User{
 
 	}
 	async getData(req, res, next){
-		let result = await UserModal.findOne({name:'12334wtwt'});
-		console.log('result is ',result)
+		// let result = await UserModal.find({name:'night'});
+		let target = {
+			city:'北京市',
+			registe_time:new Date().toLocaleString(),
+			user_name:'night',
+			mobile:'17777777777'
+		}
+		let user1 = UserModal(target)
+		user1.introduce()
+		try{
+			await user1.save() 
+			console.log('save success');
+		}catch(err){
+			console.log('save failed');
+			throw new Error(err);
+		}
+		
+		// console.log('result is ',result)
+		// UserModal.introduce()
 		// ctx.response.body = data
 	    // req.body = {
 	    //     code: "1",
 	    //     msg: "succ"
 	    // }
-	    req.body = result
+	    req.body = target
 	}
 
 	async postData(req, res, next){
 		await console.log('got postData') 
 	    req.body = {
-		    word:'鎭枩 hi1 浣犳垚鍔熺櫥闄嗕簡'
+		    word:'数据保存成功'
 		}
 	}
 }

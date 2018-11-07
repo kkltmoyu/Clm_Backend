@@ -9,10 +9,10 @@ loginRouter.get('/:id', async(ctx, next) => {
     ctx.body = data
 }).get('/home', async(ctx, next) => {
     console.log('two router /home')
-    ctx.body = '你好, 我这里是home页'
+    ctx.body = 'get success'
 }).post('/sendP', async(ctx) => {
     console.log('got post2')
-    ctx.body = '恭喜 hi2 你成功登陆了'
+    ctx.body = 'post success'
 });
 
 export default loginRouter
