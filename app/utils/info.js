@@ -1,6 +1,6 @@
 const successMsg = {
     saveSuccess:{
-        type:'SAVE_SUCCESS',
+        code:200,
         message:'保存成功'
     }
 }
@@ -14,6 +14,11 @@ const errorMsg = {
         code:400,
         message:'改手机号已注册，请直接登录',
     },
+    serverException :{
+        code:500,
+        message:'服务端异常',
+    },
+
 }
 
 export default {successMsg,errorMsg}
