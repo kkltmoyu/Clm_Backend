@@ -1,11 +1,10 @@
-
 import "babel-core/register"
 import "babel-polyfill"
 import Koa from 'koa'
 import router from './app/router/index'
 import constants from './app/utils/constants'
-import errorInfo from './app/utils/error'
-global.errorInfo = errorInfo
+import info from './app/utils/info'
+global.info = info
 
 
 const app = new Koa()

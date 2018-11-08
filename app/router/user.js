@@ -1,19 +1,11 @@
 import Router from 'koa-router'
+import userControlloer from '../controller/user/user'
 
 let userRouter = new Router()
 
-userRouter.get('/', async(ctx, next) => {
-    let url = ctx.url
-    console.log('one router :/')
-
-    let data = ctx.request.query
-    let dataQueryString = ctx.request.querystring
-    console.log('data is ',data)
-    ctx.body = {
-        url,
-        data,
-        dataQueryString
-    }
-})
+userRouter.get('/create',userControlloer.createUser)
+userRouter.get('/getInfo',userControlloer.getUser)
+userRouter.post('/validate',userControlloer.validateUser)
+userRouter.post('/update',userControlloer.updateUser)
 
 export default userRouter

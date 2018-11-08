@@ -2,8 +2,10 @@ const constants = require('../utils/constants')
 const mongoose = require('mongoose')
 
 // const dbUrl = constants.db.username + ':'+ constants.db.password + '@' + constants.db.ip + ':' + constants.db.port + '/' + constants.db.dbName
-const dbUrl = 'mongodb://localhost:27017/clm';
+// const dbUrl = 'mongodb://localhost:27017/clm';
+const dbUrl = 'mongodb://'+ constants.db.username + ':'+ constants.db.password  + '@'+ constants.db.ip + ':' + constants.db.port + '/' + constants.db.dbName
 mongoose.connect(dbUrl);
+
 mongoose.Promise = require('bluebird')
 
 const db = mongoose.connection;
@@ -19,7 +21,7 @@ db.on('error', function(error) {
 
 db.on('close', function() {
     console.log('Missing connection with db,reconnecting...')
-    mongoose.connect(dbUrl, {server:{auto_reconnect:true}});
+    mongoose.connect(dbUrl, {autoReconnect :true});
 });
 
 module.exports = db

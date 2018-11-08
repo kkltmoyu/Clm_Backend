@@ -4,6 +4,7 @@ let Schema = mongoose.Schema;
 let UserSchema = new Schema({
 	avatar: {type: String, default: 'default.jpg'},
 	city: String,
+	pwd:String,
 	registe_time: String,
 	mobile:String,
 	user_id:Number,
