@@ -2,17 +2,37 @@ const successMsg = {
     saveSuccess:{
         code:200,
         message:'保存成功'
+    },
+    updateSuccess:{
+        code:200,
+        message:'更新成功'
+    },
+    deleteSuccess:{
+        code:200,
+        message:'删除成功'
     }
 }
 
 const errorMsg = {
-    createUserFailed :{
+    createFailed :{
         code:400,
-        message:'创建用户失败',
+        message:'创建失败',
+    },
+    updateFailed:{
+        code:400,
+        message:'更新失败',
+    },
+    deleteFailed:{
+        code:400,
+        message:'删除失败',
     },
     mobileExisted :{
         code:400,
-        message:'改手机号已注册，请直接登录',
+        message:'该手机号已注册，请直接登录',
+    },
+    getListFailed:{
+        code:400,
+        message:'查询失败'
     },
     serverException :{
         code:500,
