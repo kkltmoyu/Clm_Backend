@@ -32,7 +32,7 @@ class User {
 		}
 		catch (error) {
 			ctx.status = 500;
-			ctx.body = global.info.errorMsg.getUserListFailed
+			ctx.body = global.info.errorMsg.getListFailed
 		}
 	}
 
@@ -56,7 +56,7 @@ class User {
 				} catch (err) {
 					console.log('保存失败');
 					ctx.status = 500
-					ctx.body = global.info.errorMsg.createUserFailed
+					ctx.body = global.info.errorMsg.createFailed
 				}
 			}
 			else {
@@ -67,7 +67,7 @@ class User {
 		catch (e) {
 			console.error('查询手机号是否已注册失败:', e);
 			ctx.status = 500
-			ctx.body = global.info.errorMsg.createUserFailed
+			ctx.body = global.info.errorMsg.createFailed
 		}
 	}
 
@@ -99,7 +99,7 @@ class User {
 		catch (e) {
 			console.error('删除用户失败', err);
 			ctx.status = 500
-			ctx.body = global.info.errorMsg.createUserFailed
+			ctx.body = global.info.errorMsg.createFailed
 		}
 	}
 
