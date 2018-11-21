@@ -38,6 +38,10 @@ const errorMsg = {
         code:500,
         message:'服务端异常',
     },
+    locateException:{
+        code:500,
+        message:'定位失败'
+    }
 
 }
 

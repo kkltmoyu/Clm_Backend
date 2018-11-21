@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
 import CityModel from '../../model/city'
 import Cities from '../../utils/cities'
+import AddressService from '../../base/addressService'
 import _ from 'lodash'
 
-class City {
+class City extends AddressService{
     constructor() {
         this.getAllCities = this.getAllCities.bind(this)
     }
@@ -57,7 +58,16 @@ class City {
             ctx.body = global.info.errorMsg.getListFailed
         }
     }
-    
+    async sketchyCity(ctx,next){
+        try{
+            const city = await this.locateByIp()
+            ctx.body = city
+        }
+        catch(e){
+            ctx.status = 500
+            ctx.body = global.info.errorMsg.locateException
+        }
+    }
 }
 
 export default new City()
