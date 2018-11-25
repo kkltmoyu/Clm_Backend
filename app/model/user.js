@@ -8,13 +8,13 @@ let UserSchema = new Schema({
 	registe_time: String,
 	mobile:String,
 	user_id:Number,
+	login_state:{type:String,default:'logout'},
 	user_name:{type:String,default:''},
 	is_expire:{type:Boolean,default:false},
+	address:Array,
 });
-UserSchema.index({user_id: 1});
 
 UserSchema.methods.introduce = function() {
-	// console.log('this is ',this)
 	console.log('my name is ',this.user_name)
 }
 
