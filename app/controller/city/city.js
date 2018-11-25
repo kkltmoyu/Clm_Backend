@@ -6,7 +6,9 @@ import _ from 'lodash'
 
 class City extends AddressService{
     constructor() {
+        super()
         this.getAllCities = this.getAllCities.bind(this)
+        this.sketchyCity = this.sketchyCity.bind(this)
     }
     async getAllCities(ctx, next) {
         try {
@@ -48,6 +50,7 @@ class City extends AddressService{
                 let city = CityModel(val)
                 try {
                     await city.save()
+                    ctx.body = global.info.successMsg.saveSuccess
                 } catch (err) {
                     throw new Error(err);
                 }
@@ -60,7 +63,9 @@ class City extends AddressService{
     }
     async sketchyCity(ctx,next){
         try{
-            const city = await this.locateByIp()
+            const city = await this.locateByIp(ctx)
+            if(!city.code)
+                city['code'] = 200
             ctx.body = city
         }
         catch(e){

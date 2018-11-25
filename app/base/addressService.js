@@ -1,6 +1,6 @@
 import BaseClass from './baseClass'
 
-class AddressService extends BaseClass {
+export default class AddressService extends BaseClass {
     constructor() {
         super()
         this.bMapKey = 'kKZFxTOOO4Ykdl1BytsGmGmRPMG40ksC'
@@ -8,13 +8,13 @@ class AddressService extends BaseClass {
     }
     locateByIp(ctx) {
         return new Promise(async (resolve, reject) => {
-            let sourceIp = ctx.headers['x-forwarded-for'] ||
-                ctx.connection.remoteAddress ||
-                ctx.socket.remoteAddress ||
-                ctx.connection.socket.remoteAddress;
+            let sourceIp = ctx.req.headers['x-forwarded-for'] ||
+                ctx.req.connection.remoteAddress ||
+                ctx.req.socket.remoteAddress ||
+                ctx.req.connection.socket.remoteAddress;
             const ipArr = sourceIp.split(':');
             sourceIp = ipArr[ipArr.length - 1];
-
+            // sourceIp = '101.41.86.155'
             try {
                 let result = await this.fetch('	http://api.map.baidu.com/location/ip', {
                     ip: sourceIp,
@@ -34,5 +34,6 @@ class AddressService extends BaseClass {
             catch (e) {
                 reject(e);
             }
-        }
+        })
+    }
 }

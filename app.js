@@ -37,22 +37,21 @@ const app = new Koa()
 // 	   await next();
 // });
 
-app.use(async(ctx, next) => {
-        // console.log('in 1')
-        if (ctx.request.header.origin !== ctx.origin && constants.whiteList.includes(ctx.request.header.origin)) {
-            ctx.set('Access-Control-Allow-Origin', ctx.request.header.origin);
-            ctx.set('Access-Control-Allow-Credentials', true);
-            ctx.set('X-Powered-By', ' 3.2.1'); 
-        }
-        await next();
-    })
-    .use(async(ctx, next) => {
+app.use(async (ctx, next) => {
+    if (ctx.request.header.origin !== ctx.origin && constants.whiteList.includes(ctx.request.header.origin)) {
+        ctx.set('Access-Control-Allow-Origin', ctx.request.header.origin);
+        ctx.set('Access-Control-Allow-Credentials', true);
+        ctx.set('X-Powered-By', ' 3.2.1');
+    }
+    await next();
+})
+    .use(async (ctx, next) => {
         // console.log('OPTIONS 1')
         if (ctx.method === 'OPTIONS') {
             // console.log('OPTIONS 2')
             ctx.set('Access-Control-Allow-Methods', 'PUT,DELETE,POST,GET,OPTIONS');
             // ctx.set('Access-Control-Max-Age', 3600 * 24);
-            ctx.set('Access-Control-Request-Headers','Origin,Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,Accept');
+            ctx.set('Access-Control-Request-Headers', 'Origin,Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,Accept');
             ctx.body = '';
         }
         await next();
