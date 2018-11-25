@@ -44,7 +44,7 @@ class User {
 			pwd: '200',
 			registe_time: new Date().toLocaleString(),
 			user_name: 'night2221',
-			mobile: '17777677745'
+			mobile: '17777676745'
 		}
 		try {
 			//判断用户是否存在，key为手机号
