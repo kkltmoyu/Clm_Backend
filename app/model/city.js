@@ -13,8 +13,28 @@ let CitySchema = new Schema({
 	pinyin:String,
 });
 
-CitySchema.methods.introduce = function() {
-	// console.log('my name is ',this.user_name)
+CitySchema.statics.getHotCities = function(){
+	return new Promise(async (resolve, reject) => {
+		try{
+			const city = await this.find({}).sort({'sort':1}).limit(9);
+			resolve(city)
+		}catch(err){
+			reject(global.info.dbError.queryFailed);
+			console.error(err);
+		}
+	})
+}
+
+CitySchema.statics.getCityInfo = function(cityName){
+	return new Promise(async (resolve, reject) => {
+		try{
+			const city = await this.findOne({name:cityName});
+			resolve(city)
+		}catch(err){
+			reject(global.info.dbError.queryFailed);
+			console.error(err);
+		}
+	})
 }
 
 let City = mongoose.model('City', CitySchema);

@@ -8,7 +8,7 @@ class User {
 		this.validateUser = this.validateUser.bind(this)
 		this.updateUser = this.updateUser.bind(this)
 	}
-	async getAllUser(ctx, next) {
+	async getAllUser(ctx) {
 		// let target = {
 		// 	city:'北京市',
 		// 	registe_time:new Date().toLocaleString(),
@@ -36,7 +36,7 @@ class User {
 		}
 	}
 
-	async createUser(ctx, next) {
+	async createUser(ctx) {
 		let target = {
 			_id: new mongoose.Types.ObjectId(),
 			city: '北京市',
@@ -71,11 +71,11 @@ class User {
 		}
 	}
 
-	async validateUser(ctx, next) {
+	async validateUser(ctx) {
 
 	}
 
-	async updateUser(ctx, next) {
+	async updateUser(ctx) {
 		let target = {
 			city: '北京市',
 			pwd: '2002',
@@ -103,7 +103,7 @@ class User {
 		}
 	}
 
-	async deleteUser(ctx, next) {
+	async deleteUser(ctx) {
 		let target = {
 			city: '北京市',
 			pwd: '2002',
@@ -121,11 +121,11 @@ class User {
 		}
 	}
 
-	async login(ctx,next){
+	async login(ctx){
 
 	}
 	
-	async logout(ctx,next){
+	async logout(ctx){
 		
 	}
 }

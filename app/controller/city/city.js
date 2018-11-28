@@ -10,7 +10,7 @@ class City extends AddressService{
         this.getAllCities = this.getAllCities.bind(this)
         this.sketchyCity = this.sketchyCity.bind(this)
     }
-    async getAllCities(ctx, next) {
+    async getAllCities(ctx) {
         try {
 			let result = await CityModel.find()
 			ctx.body = result
@@ -20,7 +20,7 @@ class City extends AddressService{
 			ctx.body = global.info.errorMsg.getListFailed
 		}
     }
-    async getAllCitiesByFirstChar(ctx,next){
+    async getAllCitiesByFirstChar(ctx){
         try {
 			ctx.body = Cities
 		}
@@ -29,7 +29,7 @@ class City extends AddressService{
 			ctx.body = global.info.errorMsg.getListFailed
 		}
     }
-    async getOne(ctx,next){
+    async getOne(ctx){
         try {
             const city = ctx.query.city
 			let result = await CityModel.findOne({
@@ -42,7 +42,7 @@ class City extends AddressService{
 			ctx.body = global.info.errorMsg.getListFailed
 		}
     }
-    async saveAllToDbFlatten(ctx,next){
+    async saveAllToDbFlatten(ctx){
         //1000多个城市打平入库
         try {
             let citiess = _.flatMapDepth(Object.values(Cities))
@@ -61,11 +61,31 @@ class City extends AddressService{
             ctx.body = global.info.errorMsg.getListFailed
         }
     }
-    async sketchyCity(ctx,next){
+    async sketchyCity(ctx){
         try{
-            const city = await this.locateByIp(ctx)
-            if(!city.code)
-                city['code'] = 200
+            const sketchCity = await this.locateByIp(ctx)
+            const cityName = sketchCity.name.slice(0,sketchCity.name.length-1)
+            const city = await CityModel.getCityInfo(cityName)
+            if(!city.code){
+                ctx.body = {
+                    city:city
+                }
+            }
+            else{
+                ctx.status = city.code
+                ctx.body = global.info.errorMsg.locateException
+            }
+        }
+        catch(e){
+            ctx.status = 500
+            ctx.body = global.info.errorMsg.locateException
+        }
+    }
+    async getHotCities(ctx){
+        try{
+            const city = await CityModel.getHotCities()
+            if(city.code === 500)
+                ctx.status = 500
             ctx.body = city
         }
         catch(e){

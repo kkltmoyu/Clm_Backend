@@ -8,5 +8,6 @@ cityRouter.get('/getAllByChar',cityrControlloer.getAllCitiesByFirstChar)
 cityRouter.get('/getOne',cityrControlloer.getOne)
 cityRouter.post('/saveAll',cityrControlloer.saveAllToDbFlatten)
 cityRouter.get('/sketch',cityrControlloer.sketchyCity)
+cityRouter.get('/hotCities',cityrControlloer.getHotCities)
 
 export default cityRouter

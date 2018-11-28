@@ -42,7 +42,13 @@ const errorMsg = {
         code:500,
         message:'定位失败'
     }
-
 }
 
-export default {successMsg,errorMsg}
+const dbError = {
+    queryFailed:{
+        code:500,
+        message:'数据库查询失败',
+    }
+}
+
+export default {successMsg,errorMsg,dbError}

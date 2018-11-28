@@ -14,7 +14,7 @@ export default class AddressService extends BaseClass {
                 ctx.req.connection.socket.remoteAddress;
             const ipArr = sourceIp.split(':');
             sourceIp = ipArr[ipArr.length - 1];
-            // sourceIp = '101.41.86.155'
+            sourceIp = '101.41.86.155'
             try {
                 let result = await this.fetch('	http://api.map.baidu.com/location/ip', {
                     ip: sourceIp,
@@ -22,8 +22,7 @@ export default class AddressService extends BaseClass {
                 })
                 if (result.status === 0) {
                     const cityInfo = {
-                        point: result.content.point,
-                        addressDetail: result.content.address_detail,
+                        name: result.content.address,
                     }
                     resolve(cityInfo)
                 }
