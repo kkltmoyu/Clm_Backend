@@ -9,10 +9,12 @@ class City extends AddressService{
         super()
         this.getAllCities = this.getAllCities.bind(this)
         this.sketchyCity = this.sketchyCity.bind(this)
+        this.getAllCitiesByFirstChar = this.getAllCitiesByFirstChar.bind(this)
+        this.formatAllCities = this.formatAllCities.bind(this)
     }
     async getAllCities(ctx) {
         try {
-			let result = await CityModel.find()
+			let result = await CityModel.find() 
 			ctx.body = result
 		}
 		catch (error) {
@@ -21,8 +23,12 @@ class City extends AddressService{
 		}
     }
     async getAllCitiesByFirstChar(ctx){
+        let cities = this.formatAllCities(Cities)
         try {
-			ctx.body = Cities
+			ctx.body = {
+                code:200,
+                data:cities,
+            }
 		}
 		catch (error) {
 			ctx.status = 500;
@@ -45,8 +51,8 @@ class City extends AddressService{
     async saveAllToDbFlatten(ctx){
         //1000多个城市打平入库
         try {
-            let citiess = _.flatMapDepth(Object.values(Cities))
-            for (let val of citiess) {
+            let cities = _.flatMapDepth(Object.values(Cities))
+            for (let val of cities) {
                 let city = CityModel(val)
                 try {
                     await city.save()
@@ -68,7 +74,10 @@ class City extends AddressService{
             const city = await CityModel.getCityInfo(cityName)
             if(!city.code){
                 ctx.body = {
-                    city:city
+                    code:200,
+                    data:{
+                        city:city
+                    }
                 }
             }
             else{
@@ -92,6 +101,21 @@ class City extends AddressService{
             ctx.status = 500
             ctx.body = global.info.errorMsg.locateException
         }
+    }
+    formatAllCities(sourceData){
+        let cities = []
+        let keys = Object.keys(sourceData)
+        let characters = keys.sort((a,b)=>{
+            return a.charCodeAt() - b.charCodeAt()
+        })
+        for(let val of characters){
+            let obj = {
+                key:val,
+                data:sourceData[val]
+            }
+            cities.push(obj)
+        }
+        return cities
     }
 }
 
