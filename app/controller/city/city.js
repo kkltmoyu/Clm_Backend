@@ -93,9 +93,16 @@ class City extends AddressService{
     async getHotCities(ctx){
         try{
             const city = await CityModel.getHotCities()
-            if(city.code === 500)
+            if(city.code === 500){
                 ctx.status = 500
-            ctx.body = city
+                ctx.body = global.info.errorMsg.locateException
+            }
+            else{
+                ctx.body = {
+                    code:200,
+                    data:city
+                }
+            }
         }
         catch(e){
             ctx.status = 500

@@ -35,7 +35,7 @@ export default class AddressService extends BaseClass {
                 reject(e);
             }
         })
-    },
+    }
     addressSuggestion(ctx){
         return new Promise(async (resolve, reject) => {
             try {
