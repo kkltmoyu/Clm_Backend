@@ -9,5 +9,6 @@ cityRouter.get('/getOne',cityrControlloer.getOne)
 cityRouter.post('/saveAll',cityrControlloer.saveAllToDbFlatten)
 cityRouter.get('/sketch',cityrControlloer.sketchyCity)
 cityRouter.get('/hotCities',cityrControlloer.getHotCities)
+cityRouter.get('/addressFill',cityrControlloer,addressFillUp)
 
 export default cityRouter
