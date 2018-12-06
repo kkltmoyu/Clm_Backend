@@ -9,10 +9,10 @@ class City extends AddressService{
         super()
         this.getAllCities = this.getAllCities.bind(this)
         this.sketchyCity = this.sketchyCity.bind(this)
+        this.addressSuggestion = this.addressSuggestion.bind(this)
         this.getAllCitiesByFirstChar = this.getAllCitiesByFirstChar.bind(this)
         this.formatAllCities = this.formatAllCities.bind(this)
         this.addressFillUp = this.addressFillUp.bind(this)
-        this.addressSuggestion = this.addressSuggestion.bind(this)
     }
     async getAllCities(ctx) {
         try {
@@ -126,11 +126,10 @@ class City extends AddressService{
         }
         return cities
     }
-
     async addressFillUp(ctx){
         try{
-            let addressList = await this.addressSuggestion(ctx)
-            
+            const addressList = await this.addressSuggestion(ctx)
+            console.log('addressList is ',addressList)
             debugger
             // const cityName = sketchCity.name.slice(0,sketchCity.name.length-1)
             // const city = await CityModel.getCityInfo(cityName)

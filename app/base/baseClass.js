@@ -1,5 +1,9 @@
 import fetch from 'node-fetch';
 
+import Bluebird from 'bluebird'
+
+fetch.Promise = Bluebird;
+
 export default class BaseClass {
     constructor(){
 
@@ -23,25 +27,44 @@ export default class BaseClass {
 		let requestConfig = {
 			method: type,
 			headers: {
-				'Accept': 'application/json',
+				'Accept': 'application/json; charset=utf-8',
 				'Content-Type': 'application/json'
 			},
-			mode: "no-cors",
+			credentials: 'include',
+			mode: "cors",
 		}
 
 		if (type == 'POST') {
-			Object.defineProperty(requestConfig, 'body', {
-				value: JSON.stringify(data)
-			})
+			// Object.defineProperty(requestConfig, 'body', {
+			// 	value: JSON.stringify(data)
+			// })
+			requestConfig['body'] = data
 		}
 		let responseJson;
 		try {
+			// fetch(url, { requestConfig })
+			// .then(resp =>{
+			// 	console.log('resp is ',resp)
+			// 	debugger
+			// })
+			// .catch(err => {
+			// 	debugger
+			// 	if (err.name === 'AbortError') {
+			// 	  // request was aborted
+			// 	}
+			//   })
+			
 			const response = await fetch(url, requestConfig);
-			if (resType === 'TEXT') {
-				responseJson = await response.text();
-			}else{
+			// let text = await response.json()
+			// if (text.charCodeAt(0) === 0xFEFF) {
+			// 	text = text.substr(1)
+			// }
+			// const json = JSON.stringify(text)
+			// if (resType === 'TEXT') {
+			// 	responseJson = await response.text();
+			// }else{
 				responseJson = await response.json();
-			}
+			// }
 		} catch (err) {
 			console.log('获取http数据失败', err);
 			throw new Error(err)

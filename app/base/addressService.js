@@ -1,4 +1,5 @@
 import BaseClass from './baseClass'
+
 export default class AddressService extends BaseClass{
     constructor() {
         super()
@@ -36,7 +37,7 @@ export default class AddressService extends BaseClass{
         })
     }
     async addressSuggestion(ctx){
-        return new Promise(async (resolve, reject) => {
+        // return new Promise(async (resolve, reject) => {
             try {
                 // let paramsStr = 'ak=' + this.bMapKey + '&output=json&'
                 // paramsStr +=  ctx.query.query ? 'query=' + ctx.query.query + '&' : ''
@@ -48,10 +49,10 @@ export default class AddressService extends BaseClass{
                 //     paramsStr = '?' + paramsStr
                 // }
                 let obj = {
-					ak: this.bMapKey,
-					output: 'json',
-					region: '北京',
-                    query: '广安门',
+					'ak': this.bMapKey,
+					'output': 'json',
+					'region': '北京',
+                    'query': '广安门',
                     // city_limit:true,
 				}
                 // const url = 'http://api.map.baidu.com/place/v2/suggestion' + paramsStr
@@ -59,19 +60,21 @@ export default class AddressService extends BaseClass{
 
                 // let result = await this.fetch(url,obj)
               
-                let result = await this.fetch('http://api.map.baidu.com/place/v2/suggestion?ak=kKZFxTOOO4Ykdl1BytsGmGmRPMG40ksC&output=json&query=广安门&region=北京')
+                let result = await this.fetch('http://api.map.baidu.com/place/v2/suggestion',obj,'get')
+                console.log('result is ',result)
+                debugger
                 if (result.status === 0) {
                     const addressList = result.result
-                    resolve(addressList)
+                    // resolve(addressList)
                 }
                 else {
-                    reject('查询失败');
+                    // reject('查询失败');
                 }
             }
             catch (e) {
                 console.log(e)
-                reject(e);
+                // reject(e);
             }
-        })
+        // })
     }
 }
