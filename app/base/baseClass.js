@@ -26,6 +26,7 @@ export default class BaseClass {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
+			mode: "no-cors",
 		}
 
 		if (type == 'POST') {

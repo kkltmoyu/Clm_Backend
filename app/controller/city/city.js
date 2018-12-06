@@ -11,6 +11,8 @@ class City extends AddressService{
         this.sketchyCity = this.sketchyCity.bind(this)
         this.getAllCitiesByFirstChar = this.getAllCitiesByFirstChar.bind(this)
         this.formatAllCities = this.formatAllCities.bind(this)
+        this.addressFillUp = this.addressFillUp.bind(this)
+        this.addressSuggestion = this.addressSuggestion.bind(this)
     }
     async getAllCities(ctx) {
         try {
@@ -123,6 +125,32 @@ class City extends AddressService{
             cities.push(obj)
         }
         return cities
+    }
+
+    async addressFillUp(ctx){
+        try{
+            let addressList = await this.addressSuggestion(ctx)
+            
+            debugger
+            // const cityName = sketchCity.name.slice(0,sketchCity.name.length-1)
+            // const city = await CityModel.getCityInfo(cityName)
+            // if(!city.code){
+            //     ctx.body = {
+            //         code:200,
+            //         data:{
+            //             city:city
+            //         }
+            //     }
+            // }
+            // else{
+            //     ctx.status = city.code
+            //     ctx.body = global.info.errorMsg.locateException
+            // }
+        }
+        catch(e){
+            ctx.status = 500
+            ctx.body = global.info.errorMsg.locateException
+        }
     }
 }
 

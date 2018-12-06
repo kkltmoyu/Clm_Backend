@@ -1,14 +1,14 @@
 import Router from 'koa-router'
-import cityrControlloer from '../controller/city/city'
+import cityControlloer from '../controller/city/city'
 
 let cityRouter = new Router()
 
-cityRouter.get('/getAll',cityrControlloer.getAllCities)
-cityRouter.get('/getAllByChar',cityrControlloer.getAllCitiesByFirstChar)
-cityRouter.get('/getOne',cityrControlloer.getOne)
-cityRouter.post('/saveAll',cityrControlloer.saveAllToDbFlatten)
-cityRouter.get('/sketch',cityrControlloer.sketchyCity)
-cityRouter.get('/hotCities',cityrControlloer.getHotCities)
-cityRouter.get('/addressFill',cityrControlloer,addressFillUp)
+cityRouter.get('/getAll',cityControlloer.getAllCities)
+cityRouter.get('/getAllByChar',cityControlloer.getAllCitiesByFirstChar)
+cityRouter.get('/getOne',cityControlloer.getOne)
+cityRouter.post('/saveAll',cityControlloer.saveAllToDbFlatten)
+cityRouter.get('/sketch',cityControlloer.sketchyCity)
+cityRouter.get('/hotCities',cityControlloer.getHotCities)
+cityRouter.get('/addressFill',cityControlloer.addressFillUp)
 
 export default cityRouter
