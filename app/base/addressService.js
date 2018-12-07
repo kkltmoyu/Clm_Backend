@@ -37,44 +37,34 @@ export default class AddressService extends BaseClass{
         })
     }
     async addressSuggestion(ctx){
-        // return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
-                // let paramsStr = 'ak=' + this.bMapKey + '&output=json&'
-                // paramsStr +=  ctx.query.query ? 'query=' + ctx.query.query + '&' : ''
-                // paramsStr +=  ctx.query.region ? 'region=' + ctx.query.region + '&' : ''
-                // paramsStr +=  ctx.query.city_limit !== undefined ? 'city_limit=' + ctx.query.city_limit + '&' : ''
-                // paramsStr +=  ctx.query.location ? 'location=' + ctx.query.location + '&' : ''
-                // if(paramsStr.length > 0){
-                //     paramsStr = paramsStr.slice(0,paramsStr.length - 1)
-                //     paramsStr = '?' + paramsStr
-                // }
-                let obj = {
-					'ak': this.bMapKey,
-					'output': 'json',
-					'region': '北京',
-                    'query': '广安门',
-                    // city_limit:true,
-				}
-                // const url = 'http://api.map.baidu.com/place/v2/suggestion' + paramsStr
-                // const url = 'http://api.map.baidu.com/place/v2/suggestion'
+                let paramsStr = 'ak=' + this.bMapKey + '&output=json&'
+                paramsStr +=  ctx.query.query ? 'query=' + encodeURIComponent(ctx.query.query) + '&' : ''
+                paramsStr +=  ctx.query.region ? 'region=' + encodeURIComponent(ctx.query.region) + '&' : ''
+                paramsStr +=  ctx.query.city_limit !== undefined ? 'city_limit=' + ctx.query.city_limit + '&' : ''
+                paramsStr +=  ctx.query.location ? 'location=' + ctx.query.location + '&' : ''
+                if(paramsStr.length > 0){
+                    paramsStr = paramsStr.slice(0,paramsStr.length - 1)
+                    paramsStr = '?' + paramsStr
+                }
 
-                // let result = await this.fetch(url,obj)
+                const url = 'http://api.map.baidu.com/place/v2/suggestion' + paramsStr
+               
+                let result = await this.fetch(url)
               
-                let result = await this.fetch('http://api.map.baidu.com/place/v2/suggestion',obj,'get')
-                console.log('result is ',result)
-                debugger
                 if (result.status === 0) {
                     const addressList = result.result
-                    // resolve(addressList)
+                    resolve(addressList)
                 }
                 else {
-                    // reject('查询失败');
+                    reject('查询失败');
                 }
             }
             catch (e) {
                 console.log(e)
-                // reject(e);
+                reject(e);
             }
-        // })
+        })
     }
 }

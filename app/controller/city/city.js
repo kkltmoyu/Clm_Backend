@@ -9,7 +9,6 @@ class City extends AddressService{
         super()
         this.getAllCities = this.getAllCities.bind(this)
         this.sketchyCity = this.sketchyCity.bind(this)
-        this.addressSuggestion = this.addressSuggestion.bind(this)
         this.getAllCitiesByFirstChar = this.getAllCitiesByFirstChar.bind(this)
         this.formatAllCities = this.formatAllCities.bind(this)
         this.addressFillUp = this.addressFillUp.bind(this)

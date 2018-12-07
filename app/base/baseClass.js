@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-
 import Bluebird from 'bluebird'
 
 fetch.Promise = Bluebird;
@@ -34,37 +33,18 @@ export default class BaseClass {
 			mode: "cors",
 		}
 
-		if (type == 'POST') {
-			// Object.defineProperty(requestConfig, 'body', {
-			// 	value: JSON.stringify(data)
-			// })
-			requestConfig['body'] = data
-		}
+		if (type == 'POST') 
+			requestConfig['body'] = JSON.stringify(data)
+			
 		let responseJson;
 		try {
-			// fetch(url, { requestConfig })
-			// .then(resp =>{
-			// 	console.log('resp is ',resp)
-			// 	debugger
-			// })
-			// .catch(err => {
-			// 	debugger
-			// 	if (err.name === 'AbortError') {
-			// 	  // request was aborted
-			// 	}
-			//   })
-			
 			const response = await fetch(url, requestConfig);
-			// let text = await response.json()
-			// if (text.charCodeAt(0) === 0xFEFF) {
-			// 	text = text.substr(1)
-			// }
-			// const json = JSON.stringify(text)
-			// if (resType === 'TEXT') {
-			// 	responseJson = await response.text();
-			// }else{
+
+			if (resType === 'TEXT') {
+				responseJson = await response.text();
+			}else{
 				responseJson = await response.json();
-			// }
+			}
 		} catch (err) {
 			console.log('获取http数据失败', err);
 			throw new Error(err)
