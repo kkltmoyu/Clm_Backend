@@ -41,6 +41,10 @@ const errorMsg = {
     locateException:{
         code:500,
         message:'定位失败'
+    },
+    getRelatedAddressFailed:{
+        code:500,
+        message:'获取相关地址列表失败'
     }
 }
 

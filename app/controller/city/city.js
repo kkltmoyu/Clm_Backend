@@ -128,26 +128,16 @@ class City extends AddressService{
     async addressFillUp(ctx){
         try{
             const addressList = await this.addressSuggestion(ctx)
-            console.log('addressList is ',addressList)
-            debugger
-            // const cityName = sketchCity.name.slice(0,sketchCity.name.length-1)
-            // const city = await CityModel.getCityInfo(cityName)
-            // if(!city.code){
-            //     ctx.body = {
-            //         code:200,
-            //         data:{
-            //             city:city
-            //         }
-            //     }
-            // }
-            // else{
-            //     ctx.status = city.code
-            //     ctx.body = global.info.errorMsg.locateException
-            // }
+            ctx.body = {
+                code:200,
+                data:{
+                    addressList:addressList
+                }
+            }
         }
         catch(e){
             ctx.status = 500
-            ctx.body = global.info.errorMsg.locateException
+            ctx.body = global.info.errorMsg.getRelatedAddressFailed
         }
     }
 }
