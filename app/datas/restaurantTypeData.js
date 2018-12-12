@@ -1,0 +1,392 @@
+export default [{
+    count: 0,
+    ids: [
+        207,
+        220,
+        260,
+        233,
+        239,
+        244,
+        248,
+        252
+    ],
+    level: 1,
+    name: "全部商家"
+}, {
+    count: 0,
+    id: 207,
+    ids: [
+        207
+    ],
+    level: 1,
+    name: "快餐便当",
+    sub_categories: [{
+        count: 0,
+        id: 207,
+        level: 1,
+        name: "全部快餐便当"
+    }, {
+        count: 0,
+        id: 265,
+        level: 2,
+        name: "简餐"
+    }, {
+        count: 0,
+        id: 209,
+        level: 2,
+        name: "盖浇饭"
+    }, {
+        count: 0,
+        id: 213,
+        level: 2,
+        name: "米粉面馆"
+    }, {
+        count: 0,
+        id: 215,
+        level: 2,
+        name: "包子粥店"
+    }, {
+        count: 0,
+        id: 219,
+        level: 2,
+        name: "香锅砂锅"
+    }, {
+        count: 0,
+        id: 214,
+        level: 2,
+        name: "麻辣烫"
+    }, {
+        count: 0,
+        id: 217,
+        level: 2,
+        name: "饺子馄饨"
+    }, {
+        count: 0,
+        id: 212,
+        level: 2,
+        name: "汉堡"
+    }, {
+        count: 0,
+        id: 216,
+        level: 2,
+        name: "生煎锅贴"
+    }, {
+        count: 0,
+        id: 267,
+        level: 2,
+        name: "黄焖鸡米饭"
+    }, {
+        count: 0,
+        id: 266,
+        level: 2,
+        name: "烧腊饭"
+    }, {
+        count: 0,
+        id: 269,
+        level: 2,
+        name: "煲仔饭"
+    }, {
+        count: 0,
+        id: 268,
+        level: 2,
+        name: "咖喱饭"
+    }]
+}, {
+    count: 0,
+    id: 220,
+    ids: [
+        220
+    ],
+    level: 1,
+    name: "特色菜系",
+    sub_categories: [{
+        count: 0,
+        id: 220,
+        level: 1,
+        name: "全部特色菜系"
+    }, {
+        count: 0,
+        id: 221,
+        level: 2,
+        name: "川湘菜"
+    }, {
+        count: 0,
+        id: 263,
+        level: 2,
+        name: "其他菜系"
+    }, {
+        count: 0,
+        id: 225,
+        level: 2,
+        name: "江浙菜"
+    }, {
+        count: 0,
+        id: 222,
+        level: 2,
+        name: "粤菜"
+    }, {
+        count: 0,
+        id: 232,
+        level: 2,
+        name: "海鲜"
+    }, {
+        count: 0,
+        id: 231,
+        level: 2,
+        name: "火锅烤鱼"
+    }, {
+        count: 0,
+        id: 223,
+        level: 2,
+        name: "东北菜"
+    }, {
+        count: 0,
+        id: 226,
+        level: 2,
+        name: "西北菜"
+    }, {
+        count: 0,
+        id: 224,
+        level: 2,
+        name: "云南菜"
+    }, {
+        count: 0,
+        id: 228,
+        level: 2,
+        name: "新疆菜"
+    }, {
+        count: 0,
+        id: 227,
+        level: 2,
+        name: "鲁菜"
+    }]
+}, {
+    count: 0,
+    id: 260,
+    ids: [
+        260
+    ],
+    level: 1,
+    name: "异国料理",
+    sub_categories: [{
+        count: 0,
+        id: 260,
+        level: 1,
+        name: "全部异国料理"
+    }, {
+        count: 0,
+        id: 229,
+        level: 2,
+        name: "日韩料理"
+    }, {
+        count: 0,
+        id: 230,
+        level: 2,
+        name: "西餐"
+    }, {
+        count: 0,
+        id: 211,
+        level: 2,
+        name: "披萨意面"
+    }, {
+        count: 0,
+        id: 264,
+        level: 2,
+        name: "东南亚菜"
+    }]
+}, {
+    count: 0,
+    id: 233,
+    ids: [
+        233
+    ],
+    level: 1,
+    name: "小吃夜宵",
+    sub_categories: [{
+        count: 0,
+        id: 233,
+        level: 1,
+        name: "全部小吃夜宵"
+    }, {
+        count: 0,
+        id: 236,
+        level: 2,
+        name: "小龙虾"
+    }, {
+        count: 0,
+        id: 237,
+        level: 2,
+        name: "地方小吃"
+    }, {
+        count: 0,
+        id: 218,
+        level: 2,
+        name: "烧烤"
+    }, {
+        count: 0,
+        id: 234,
+        level: 2,
+        name: "炸鸡炸串"
+    }, {
+        count: 0,
+        id: 235,
+        level: 2,
+        name: "鸭脖卤味"
+    }, {
+        count: 0,
+        id: 238,
+        level: 2,
+        name: "零食"
+    }]
+}, {
+    count: 0,
+    id: 239,
+    ids: [
+        239
+    ],
+    level: 1,
+    name: "甜品饮品",
+    sub_categories: [{
+        count: 0,
+        id: 239,
+        level: 1,
+        name: "全部甜品饮品"
+    }, {
+        count: 0,
+        id: 240,
+        level: 2,
+        name: "奶茶果汁"
+    }, {
+        count: 0,
+        id: 241,
+        level: 2,
+        name: "甜品"
+    }, {
+        count: 0,
+        id: 242,
+        level: 2,
+        name: "咖啡"
+    }]
+}, {
+    count: 0,
+    id: 244,
+    ids: [
+        244
+    ],
+    level: 1,
+    name: "果蔬生鲜",
+    sub_categories: [{
+        count: 0,
+        id: 244,
+        level: 1,
+        name: "全部果蔬生鲜"
+    }, {
+        count: 0,
+        id: 245,
+        level: 2,
+        name: "水果"
+    }, {
+        count: 0,
+        id: 247,
+        level: 2,
+        name: "生鲜"
+    }, {
+        count: 0,
+        id: 246,
+        level: 2,
+        name: "蔬菜"
+    }, {
+        count: 0,
+        id: 270,
+        level: 2,
+        name: "海鲜水产"
+    }]
+}, {
+    count: 0,
+    id: 248,
+    ids: [
+        248
+    ],
+    level: 1,
+    name: "鲜花蛋糕",
+    sub_categories: [{
+        count: 0,
+        id: 248,
+        level: 1,
+        name: "全部鲜花蛋糕"
+    }, {
+        count: 0,
+        id: 251,
+        level: 2,
+        name: "鲜花"
+    }, {
+        count: 0,
+        id: 249,
+        level: 2,
+        name: "蛋糕"
+    }, {
+        count: 0,
+        id: 250,
+        level: 2,
+        name: "面包"
+    }]
+}, {
+    count: 0,
+    id: 252,
+    ids: [
+        252
+    ],
+    level: 1,
+    name: "商店超市",
+    sub_categories: [{
+        count: 0,
+        id: 252,
+        level: 1,
+        name: "全部商店超市"
+    }, {
+        count: 0,
+        id: 254,
+        level: 2,
+        name: "超市"
+    }, {
+        count: 0,
+        id: 271,
+        level: 2,
+        name: "便利店"
+    }, {
+        count: 0,
+        id: 274,
+        level: 2,
+        name: "名酒坊"
+    }, {
+        count: 0,
+        id: 273,
+        level: 2,
+        name: "零食饮料"
+    }, {
+        count: 0,
+        id: 255,
+        level: 2,
+        name: "水站"
+    }, {
+        count: 0,
+        id: 258,
+        level: 2,
+        name: "茶"
+    }, {
+        count: 0,
+        id: 256,
+        level: 2,
+        name: "奶站"
+    }, {
+        count: 0,
+        id: 257,
+        level: 2,
+        name: "粮油"
+    }, {
+        count: 0,
+        id: 272,
+        level: 2,
+        name: "美妆母婴"
+    }]
+}]

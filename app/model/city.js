@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import CitiesData from '../datas/cityData'
 let Schema = mongoose.Schema;
 
 let CitySchema = new Schema({
@@ -37,6 +38,16 @@ CitySchema.statics.getCityInfo = function(cityName){
 	})
 }
 
-let City = mongoose.model('City', CitySchema);
+let Cities = mongoose.model('Cities', CitySchema);
 
-export default City
+// Cities.findOne((err, data) => {
+// 	debugger
+// 	if (!data) {
+// 		let citiess = _.flatMapDepth(Object.values(CitiesData))
+// 		for (let i = 0; i < citiess.length; i++) {
+// 			Cities.create(citiess[i]);
+// 		}
+// 	}
+// })
+
+export default Cities
