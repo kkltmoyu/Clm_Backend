@@ -1,15 +1,15 @@
 import mongoose from 'mongoose'
-import FoodTypeModel from '../../model/foodType'
+import RestaurantTypeModel from '../../model/restaurantType'
 import AddressService from '../../base/addressService'
 
-class FoodType extends AddressService{
+class RestaurantType extends AddressService{
     constructor() {
         super()
         
     }
-    async getAllFoodType(ctx){
+    async getAllRestaurantType(ctx){
         try {
-			let result = await FoodTypeModel.find() 
+			let result = await RestaurantTypeModel.find() 
 			ctx.body = result
 		}
 		catch (error) {
@@ -19,4 +19,4 @@ class FoodType extends AddressService{
     }
 }
 
-export default new FoodType()
+export default new RestaurantType()

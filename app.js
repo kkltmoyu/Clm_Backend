@@ -3,10 +3,12 @@ import "babel-polyfill"
 import Koa from 'koa'
 import router from './app/router/index'
 import constants from './app/utils/constants'
+import db from './app/db/db'
 import info from './app/utils/info'
 global.info = info
 
 const app = new Koa()
+
 // app.context.db = 'mydb'
 // const db = require('./app/db/db')
 // indexRouter.get('/getOne', async(ctx,next) => {

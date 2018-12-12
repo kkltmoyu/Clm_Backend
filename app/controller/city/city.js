@@ -49,25 +49,6 @@ class City extends AddressService{
 			ctx.body = global.info.errorMsg.getListFailed
 		}
     }
-    async saveAllToDbFlatten(ctx){
-        //1000多个城市打平入库
-        try {
-            let cities = _.flatMapDepth(Object.values(Cities))
-            for (let val of cities) {
-                let city = CityModel(val)
-                try {
-                    await city.save()
-                    ctx.body = global.info.successMsg.saveSuccess
-                } catch (err) {
-                    throw new Error(err);
-                }
-            }
-        }
-        catch (error) {
-            ctx.status = 500;
-            ctx.body = global.info.errorMsg.getListFailed
-        }
-    }
     async sketchyCity(ctx){
         try{
             const sketchCity = await this.locateByIp(ctx)

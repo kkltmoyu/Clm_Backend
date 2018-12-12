@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import CitiesData from '../datas/cityData'
+import _ from 'lodash'
 let Schema = mongoose.Schema;
 
 let CitySchema = new Schema({
@@ -40,14 +41,14 @@ CitySchema.statics.getCityInfo = function(cityName){
 
 let Cities = mongoose.model('Cities', CitySchema);
 
-// Cities.findOne((err, data) => {
-// 	debugger
-// 	if (!data) {
-// 		let citiess = _.flatMapDepth(Object.values(CitiesData))
-// 		for (let i = 0; i < citiess.length; i++) {
-// 			Cities.create(citiess[i]);
-// 		}
-// 	}
-// })
+Cities.findOne((err, data) => {
+	if (!data) {
+		//1000多个城市打平入库
+		let citiess = _.flatMapDepth(Object.values(CitiesData))
+		for (let i = 0; i < citiess.length; i++) {
+			Cities.create(citiess[i]);
+		}
+	}
+})
 
 export default Cities
