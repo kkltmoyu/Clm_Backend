@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import FoodTypeModel from '../../model/foodType'
-import AddressService from '../../base/addressService'
+import FoodTypeModel from '../model/foodType'
+import AddressService from '../base/addressService'
 
 class FoodType extends AddressService{
     constructor() {

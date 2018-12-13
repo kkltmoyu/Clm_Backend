@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import foodTypeController from '../controller/foodType/foodType'
+import foodTypeController from '../controller/foodType'
 
 let foodTypeRouter = new Router()
 

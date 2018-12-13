@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import UserModel from '../../model/user'
+import UserModel from '../model/user'
 
 class User {
 	constructor() {

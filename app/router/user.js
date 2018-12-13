@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import userControlloer from '../controller/user/user'
+import userControlloer from '../controller/user'
 
 let userRouter = new Router()
 

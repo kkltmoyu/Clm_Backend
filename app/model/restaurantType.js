@@ -9,12 +9,14 @@ const restaurantTypeSchema = new Schema({
 	ids: [],
 	level: Number,
 	name: String,
+	image_url: String,
 	sub_categories: [
 		{
 			count: Number,
 			id: Number,
 			level: Number,
-			name: String
+			name: String,
+			image_url: String,
 		},
 	]
 });

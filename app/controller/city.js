@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
-import CityModel from '../../model/city'
-import Cities from '../../datas/cityData'
-import AddressService from '../../base/addressService'
+import CityModel from '../model/city'
+import Cities from '../datas/cityData'
+import AddressService from '../base/addressService'
 import _ from 'lodash'
 
 class City extends AddressService{

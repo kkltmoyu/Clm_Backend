@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import cityControlloer from '../controller/city/city'
+import cityControlloer from '../controller/city'
 
 let cityRouter = new Router()
 

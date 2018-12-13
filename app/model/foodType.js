@@ -8,6 +8,7 @@ const foodTypeSchema = new Schema({
 	is_in_serving: Boolean,
 	description: String,
 	title: String,
+	image_url: String,
 });
 
 const FoodType = mongoose.model('FoodType', foodTypeSchema)
