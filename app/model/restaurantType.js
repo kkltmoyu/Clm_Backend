@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 const restaurantTypeSchema = new Schema({
 	count: Number,
 	id: Number,
-	ids: [],
 	level: Number,
 	name: String,
 	image_url: String,

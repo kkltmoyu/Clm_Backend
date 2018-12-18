@@ -5,8 +5,8 @@ import AddressService from '../base/addressService'
 class FoodType extends AddressService{
     constructor() {
         super()
-        
-    }
+	}
+	
     async getAllFoodType(ctx){
         try {
 			let result = await FoodTypeModel.find() 

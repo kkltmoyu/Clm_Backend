@@ -3,6 +3,6 @@ import foodTypeController from '../controller/foodType'
 
 let foodTypeRouter = new Router()
 
-foodTypeRouter.get('/all',foodTypeController.getAllFoodType)
+foodTypeRouter.get('/food-types',foodTypeController.getAllFoodType)
 
 export default foodTypeRouter

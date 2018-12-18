@@ -3,6 +3,6 @@ import restaurantTypeController from '../controller/restaurantType'
 
 let restaurantTypeRouter = new Router()
 
-restaurantTypeRouter.get('/all',restaurantTypeController.getAllRestaurantType)
+restaurantTypeRouter.get('/restaurant-types',restaurantTypeController.getAllRestaurantType)
 
 export default restaurantTypeRouter
