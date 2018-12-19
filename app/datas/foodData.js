@@ -441,5 +441,31 @@ export default [
         "display_times": [],
         "pinyin_name": "",
         "is_featured": 0,
+    },{
+        "tips": "",
+        "item_id": 18,
+        "food_type_id": 1,
+        "restaurant_id": 2,
+        "activity": {},
+        "image_path": "",
+        "name": "九转大肠",
+        "click_count": 0,
+        "sales_count": 0,
+        "rating_count": 0,
+        "rating_score": [],
+        "is_essential": false,
+        "specifications": [
+            {
+                "name": "规格",
+                "values": [
+                    "",
+                ]
+            }
+        ],
+        "description": "",
+        "attrs": [],
+        "display_times": [],
+        "pinyin_name": "",
+        "is_featured": 0,
     }
 ]

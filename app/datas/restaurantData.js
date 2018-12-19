@@ -5,7 +5,7 @@ export default [{
     city:'北京',
     description:'天上龙肉地下驴肉',
     id:1,
-    type:'1/2',
+    type:'1-2',
     name:'王胖子'
 },{
     address:'address2',
@@ -14,7 +14,7 @@ export default [{
     city:'北京',
     description:'天上龙肉地下驴肉',
     id:2,
-    type:'1/2',
+    type:'1-2',
     name:'李先生'
 },{
     address:'address3',
@@ -23,7 +23,7 @@ export default [{
     city:'北京',
     description:'天上龙肉地下驴肉',
     id:3,
-    type:'1/2',
+    type:'1-2',
     name:'张师傅'
 },{
     address:'address4',
@@ -32,7 +32,7 @@ export default [{
     city:'北京',
     description:'天上龙肉地下驴肉',
     id:4,
-    type:'1/2',
+    type:'1-2',
     name:'隔壁老王'
 },{
     address:'address5',
@@ -41,6 +41,6 @@ export default [{
     city:'北京',
     description:'天上龙肉地下驴肉5',
     id:5,
-    type:'1/3',
+    type:'1-3',
     name:'隔壁老王2'
 }]

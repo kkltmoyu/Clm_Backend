@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import RestaurantModel from '../model/restaurant'
 import AddressService from '../base/addressService'
 
@@ -19,8 +18,13 @@ class Restaurant extends AddressService{
     }
     async getRestaurantByType(ctx){
         try {
-            let path = ctx.query.type
-			let result = await RestaurantModel.find() 
+			let condition = decodeURIComponent(ctx.captures[0])
+			const regex = new RegExp(condition);
+			let result = await RestaurantModel.find({
+				type:{
+					$regex:regex
+				}
+			})
 			ctx.body = result
 		}
 		catch (error) {

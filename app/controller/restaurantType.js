@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import RestaurantTypeModel from '../model/restaurantType'
 import AddressService from '../base/addressService'
 

@@ -14,24 +14,28 @@ const successMsg = {
 }
 
 const errorMsg = {
-    createFailed :{
+    unknownParameters :{
         code:400,
+        message:'参数错误',
+    },
+    createFailed :{
+        code:500,
         message:'创建失败',
     },
     updateFailed:{
-        code:400,
+        code:500,
         message:'更新失败',
     },
     deleteFailed:{
-        code:400,
+        code:500,
         message:'删除失败',
     },
     mobileExisted :{
-        code:400,
+        code:500,
         message:'该手机号已注册，请直接登录',
     },
     getListFailed:{
-        code:400,
+        code:500,
         message:'查询失败'
     },
     serverException :{
