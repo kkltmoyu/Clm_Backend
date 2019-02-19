@@ -5,18 +5,26 @@ import router from './app/router/index'
 import constants from './app/utils/constants'
 import db from './app/db/db'
 import info from './app/utils/info'
+
 global.info = info
+global.Promise = require('bluebird')
 
 const app = new Koa()
+
+//监听uncaughtException，防止node进程挂掉
+process.on('uncaughtException', function (err) {
+  console.error('Unexpected exception: ' + err)
+  console.error('Unexpected exception stack: ' + err.stack)
+})
 
 // app.context.db = 'mydb'
 // const db = require('./app/db/db')
 // indexRouter.get('/getOne', async(ctx,next) => {
 // app.get('/getOne', async(ctx,next) => {
 //     console.log('got getOne')
-//     // ctx.response.body = '�?�? getOne'
+//     // ctx.response.body = 'æ?å–? getOne'
 //     // ctx.body = {
-//     //   obj :'�?�? getOne'
+//     //   obj :'æ?å–? getOne'
 //     // }
 //     if (ctx.request.accepts('xml')) {
 //     	console.log('xml')
