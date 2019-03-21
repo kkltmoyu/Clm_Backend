@@ -3,7 +3,8 @@ import "babel-polyfill"
 import Koa from 'koa'
 import router from './app/router/index'
 import constants from './app/utils/constants'
-import db from './app/db/db'
+// import mongoDb from './app/db/mongo'
+import redis from './app/db/redis'
 import info from './app/utils/info'
 
 global.info = info

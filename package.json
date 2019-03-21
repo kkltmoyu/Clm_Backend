@@ -5,13 +5,15 @@
   "private": true,
   "dependencies": {
     "bluebird": "^3.5.3",
+    "generic-pool": "^3.6.1",
     "jsonwebtoken": "^8.3.0",
     "koa": "^2.6.1",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.9",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "redis": "^2.8.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

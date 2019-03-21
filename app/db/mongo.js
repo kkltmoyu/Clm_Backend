@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 
 // const dbUrl = constants.db.username + ':'+ constants.db.password + '@' + constants.db.ip + ':' + constants.db.port + '/' + constants.db.dbName
 // const dbUrl = 'mongodb://localhost:27017/clm';
-const dbUrl = 'mongodb://'+ constants.db.username + ':'+ constants.db.password  + '@'+ constants.db.ip + ':' + constants.db.port + '/' + constants.db.dbName
+const dbUrl = 'mongodb://'+ constants.mongodb.username + ':'+ constants.mongodb.password  + '@'+ constants.mongodb.ip + ':' + constants.mongodb.port + '/' + constants.mongodb.dbName
 mongoose.connect(dbUrl,{
     useNewUrlParser: true 
 });
 
-mongoose.Promise = require('bluebird')
+mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
 
